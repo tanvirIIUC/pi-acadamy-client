@@ -28,17 +28,17 @@ const Register = () => {
   
   
         <div className="text-center">
-          <p>Not a member? <Link to='/register'>Sign in</Link> </p>
+          <p>Not a member? <Link to='/login'>Sign in</Link> </p>
           <p>or sign up with:</p>
   
-          <div className='d-flex justify-content-center  mx-auto' style={{width: '40%'}}>
+          <div className='d-flex justify-content-center  mx-auto' >
            
-            <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-              <MDBIcon fab icon='google' size="sm"/>
+            <MDBBtn tag='a' color='none' className='m-1 ' style={{ color: '#1266f1' }}>
+              <MDBIcon fab icon='google' size="lg"/>
             </MDBBtn>
   
             <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-              <MDBIcon fab icon='github' size="sm"/>
+              <MDBIcon fab icon='github' size="lg"/>
             </MDBBtn>
   
           </div>
