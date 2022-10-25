@@ -18,7 +18,7 @@ const LeftSideNev = () => {
                 {
                     topics.map(topic=> <p key={topic.id}>
 
-                    <Link>{topic.name}</Link>
+                    <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
                     </p>)
                 }
             </div>
