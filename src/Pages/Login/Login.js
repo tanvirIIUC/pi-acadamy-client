@@ -9,7 +9,7 @@ import {
   MDBIcon
 }
 from 'mdb-react-ui-kit';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -20,6 +20,9 @@ const Login = () => {
 
   const {signIn} = useContext(AuthContext);
    const navigate = useNavigate();
+   const location = useLocation();
+
+   const from = location.state?.from?.pathname || '/';
     const [error,setError]= useState('');
     const {providerLogin}= useContext(AuthContext);
 
@@ -29,7 +32,7 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result =>{
             const user = result.user;
-            navigate('/top');
+            navigate(from,{replace: true});
             // console.log(user);
         })
         .catch(error =>console.error(error))

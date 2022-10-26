@@ -6,6 +6,7 @@ import Register from "../../Pages/Register/Register";
 import TopicHome from "../../Pages/TopicHome/TopicHome";
 import Topics from "../../Pages/Topics/Topices/Topics";
 import TopicsView from "../../Pages/TopicsView/TopicsView";
+import PrivatRoute from "../PrivatRoute/PrivatRoute";
 
 export const routes = createBrowserRouter([
 
@@ -29,7 +30,7 @@ export const routes = createBrowserRouter([
             
             {
                 path:'/top',
-                element : <TopicHome></TopicHome>
+                element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>
             },
             
             {
