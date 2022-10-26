@@ -9,13 +9,18 @@ import {
   MDBIcon
 }
 from 'mdb-react-ui-kit';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const Login = () => {
 
+  const {signIn} = useContext(AuthContext);
+   const navigate = useNavigate();
+    const [error,setError]= useState('');
     const {providerLogin}= useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
@@ -24,21 +29,44 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result =>{
             const user = result.user;
+            navigate('/top');
             // console.log(user);
         })
         .catch(error =>console.error(error))
     }
 
+    const handleSubmit= event =>{
+      event.preventDefault();
+      const form =event.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      signIn(email,password)
+      .then(result =>{
+        const user = result.user;
+        // console.log(user);
+       
+        form.reset();
+        setError('');
+        navigate('/top');
+
+      })
+      .catch(error =>{
+        console.error(error)
+        setError(error.message);
+      })
+    }
+
     return (
-          <Form>
+          <Form onSubmit={handleSubmit}>
               <MDBContainer className="p-3 my-5 d-flex flex-column w-50 border rounded">
             <h2> sign In</h2>
 
-        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' required/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' required/>
+        <MDBInput wrapperClass='mb-4' name='email' label='Email address' id='form1' type='email' required/>
+        <MDBInput wrapperClass='mb-4' name='password' label='Password' id='form2' type='password' required/>
   
         <div className="d-flex justify-content-between mx-3 mb-4">
         <MDBBtn className="mb-4">Sign in</MDBBtn>
+         <p className='text-danger'>{error}</p>
           <a href="!#">Forgot password?</a>
         </div>
   
