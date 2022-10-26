@@ -23,9 +23,7 @@ const Header = () => {
       
       
       
-      // .then(toast.warning('User logged out!'))
-      /* .catch(error => console.log(error))
-      navigate('/login'); */
+      
     }
     
    
@@ -40,8 +38,10 @@ const Header = () => {
            
             
             <Nav.Link> <Link to='/'>Home</Link></Nav.Link>
-            {/* <Nav.Link> </Nav.Link> */}
-            <Nav.Link href="">Blogs</Nav.Link>
+            <Nav.Link> <Link to='/blogs'>Blogs</Link></Nav.Link>
+            <Nav.Link> <Link to='/faq'>FAQ</Link></Nav.Link>
+            
+            
            
           </Nav>
           <Nav>

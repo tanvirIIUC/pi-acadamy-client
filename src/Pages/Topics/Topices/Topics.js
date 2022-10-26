@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Col, Row } from 'react-bootstrap';
+
 import TopicsView from '../../TopicsView/TopicsView';
 // import { useLoaderData } from 'react-router-dom';
 
@@ -17,13 +17,18 @@ const Topics = ({ topicid }) => {
 
     return (
         <div>
-            {/* <h2> topics : {topic?.length}</h2> */}
-           
-            {
+            <h2> Topic View</h2>
+            <Row className='row row-cols-lg-2'>
+                
+                {
                 topic?.map(top => <TopicsView top={top}></TopicsView>)
-            }
+                }
+              
+            </Row>
+           
+            
 
-            {/* <h2>aaaaa{topicid}</h2> */}
+            
         </div>
     );
 };

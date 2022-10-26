@@ -3,8 +3,9 @@ import { Container } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <div>
-            <Container className='text-center'>
+        <div className='py-3'>
+            <Container className='text-center '>
+                <hr />
             <small>copy right 2022</small>
             </Container>
             
