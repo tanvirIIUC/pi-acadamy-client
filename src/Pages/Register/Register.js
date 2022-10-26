@@ -17,25 +17,38 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 const Register = () => {
   const [error,setError]= useState('');
 
- const {createUser} = useContext(AuthContext);
+ const {createUser,updateUserProfile} = useContext(AuthContext);
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    // console.log(name, email, password);
 
     createUser(email,password)
     .then(result =>{
       const user = result.user;
       setError('');
       form.reset();
+      handleUpdateUserProfile(name,photoURL)
+
     })
     .catch(error =>{
       console.error(error)
       setError(error.message);
     })
+  }
+
+  const handleUpdateUserProfile =(name,photoURL) =>{
+    const profile = {
+      displayName : name,
+      photoURL : photoURL
+    }
+    updateUserProfile(profile)
+    .then(() =>{ })
+    .catch(error =>console.error(error));
   }
   return (
     <Form onSubmit={handleSubmit}>
@@ -43,6 +56,7 @@ const Register = () => {
         <h2> Register</h2>
 
         <MDBInput wrapperClass='mb-4' name='name' label='User Name' id='form1' type='text' required />
+        <MDBInput wrapperClass='mb-4' name='photoURL' label='photoURL' id='form1' type='text' required />
 
         <MDBInput wrapperClass='mb-4' name='email' label='Email address' id='form1' type='email' required />
         <MDBInput wrapperClass='mb-4' name='password' label='Password' id='form2' type='password' required />

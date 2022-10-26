@@ -12,7 +12,7 @@ from 'mdb-react-ui-kit';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 
@@ -24,9 +24,10 @@ const Login = () => {
 
    const from = location.state?.from?.pathname || '/';
     const [error,setError]= useState('');
-    const {providerLogin}= useContext(AuthContext);
+    const {providerLogin,providerGithubLogin}= useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
@@ -36,6 +37,17 @@ const Login = () => {
             // console.log(user);
         })
         .catch(error =>console.error(error))
+    }
+
+    const handleGithubSignin = ()=>{
+      providerGithubLogin(githubProvider)
+      .then(result =>{
+        const user = result.user;
+        navigate(from,{replace: true});
+        // console.log(user);
+    })
+    .catch(error =>console.error(error))
+
     }
 
     const handleSubmit= event =>{
@@ -84,7 +96,7 @@ const Login = () => {
               <MDBIcon fab icon='google' size="lg"/>
             </MDBBtn>
   
-            <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
+            <MDBBtn onClick={handleGithubSignin} tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
               <MDBIcon fab icon='github' size="lg"/>
             </MDBBtn>
   

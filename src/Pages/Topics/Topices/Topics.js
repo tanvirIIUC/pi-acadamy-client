@@ -3,7 +3,7 @@ import React from 'react';
 const Topics = () => {
     return (
         <div>
-            <h2>this is topics</h2> 
+            <h2> topics</h2> 
         </div>
     );
 };

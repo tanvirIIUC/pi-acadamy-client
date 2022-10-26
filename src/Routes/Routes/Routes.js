@@ -30,7 +30,8 @@ export const routes = createBrowserRouter([
             
             {
                 path:'/top',
-                element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>
+                element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>,
+                
             },
             
             {

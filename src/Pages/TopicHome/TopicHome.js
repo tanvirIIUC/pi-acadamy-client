@@ -15,7 +15,7 @@ const TopicHome = () => {
                     </Col>
                     <Col lg="8">
                         <Topics></Topics>
-                    <Outlet></Outlet>
+                       <Outlet></Outlet>
                     </Col>
                 </Row>
                 
