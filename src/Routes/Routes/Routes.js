@@ -30,19 +30,23 @@ export const routes = createBrowserRouter([
             
             {
                 path:'/top',
-                element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>,
+                element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>
                 
             },
             
-            {
+           /*  {
                 path:'/topics/:id',
-                element: <Topics></Topics>
-            },
-            {
+                element: <Topics></Topics>,
+                loader : ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+            }, */
+          /*   {
                 path: '/topicsview/:id',
                 element:<TopicsView></TopicsView>
-            }
+            } */
 
         ]
-    }
+       
+        
+    },
+    {path: '*',element: <div>Error 404 !</div>}
 ])
