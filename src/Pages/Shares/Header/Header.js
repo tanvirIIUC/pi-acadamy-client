@@ -29,8 +29,15 @@ const Header = () => {
    
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg='dark' variant="dark">
+            <Navbar collapseOnSelect expand="lg" className='bg-dark' variant="dark">
       <Container>
+      <img    className='me-2'
+              src="favicon.ico"
+              width="30"
+              height="30"
+            
+              alt="React Bootstrap logo"
+            />
         <Navbar.Brand ><Link to='/'>Pi Acadamy</Link> </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -50,17 +57,17 @@ const Header = () => {
                 {
                     user && user.uid  ?
                     <>
-                        <Link to='/top'>Topics</Link>
+                        <Link className='me-2' to='/top'>Courses</Link>
 
-                        <span> {user?.displayName}</span>
+                        <span className='me-2' > {user?.displayName}</span>
                         {/* <Button onClick={signOut} variant="outline-primary">Logout </Button>{' '} */}
-                         <Link onClick={signOut}> Logout</Link>
+                         <Link className='me-2' onClick={signOut}> Logout</Link>
 
                         {/* <button onClick={signOut}>logout</button> */}
                     </>
                     :
                     <>
-                        <Link to='/login'>Login</Link>
+                        <Link className='me-2' to='/login'>Login</Link>
                     </>
                 }
                 {/* <span> {user?.displayName} <button onClick={signOut}>logout</button></span> */}
@@ -70,6 +77,7 @@ const Header = () => {
               {
                user && user.photoURL ?
                 <Image
+                className='me-2'
                 style={{height:'30px'}} roundedCircle
                 src={user.photoURL}></Image>
                 : <MDBIcon fab icon='' size="lg"/>
