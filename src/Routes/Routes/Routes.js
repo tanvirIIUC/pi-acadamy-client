@@ -53,12 +53,9 @@ export const routes = createBrowserRouter([
             {
                 path:'/details/:id',
                 element : <PrivatRoute><TopicDetails></TopicDetails></PrivatRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/topicsDetails/${params.id}`)
+                loader : ({params}) => fetch(`https://pi-acadamy-server.vercel.app/topicsDetails/${params.id}`)
             },
-          /*   {
-                path: '/topicsview/:id',
-                element:<TopicsView></TopicsView>
-            } */
+         
 
         ]
        

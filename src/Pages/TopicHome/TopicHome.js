@@ -13,7 +13,7 @@ const TopicHome = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/topics')
+        fetch('https://pi-acadamy-server.vercel.app/topics')
             .then(res => res.json())
             .then(data => setTopics(data))
     }, [])

@@ -14,7 +14,7 @@ const Topics = ({ topicid,name }) => {
     const [topic, setTopic] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/course/${topicid}`)
+        fetch(`https://pi-acadamy-server.vercel.app/course/${topicid}`)
             .then(res => res.json())
             .then(data => setTopic(data))
     }, topicid)
