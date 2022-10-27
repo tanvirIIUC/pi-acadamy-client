@@ -1,6 +1,6 @@
 # Pi Acadamy
 
-Live website link : [Pi Acadamy](https://steady-hummingbird-0d4932.netlify.app/blog).
+Live website link : [Pi Acadamy](https://pi-acadamy.web.app/).
 
 ## Description :
 
