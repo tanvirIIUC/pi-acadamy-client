@@ -1,37 +1,65 @@
 import React from 'react';
+import { useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { AiFillEye, AiFillStar } from "react-icons/ai";
+import { Link } from 'react-router-dom';
+import TopicDetails from '../TopicDetails/TopicDetails';
+
+
+
 
 
 const TopicsView = ({ top }) => {
-    const {title,image_url,rating,total_view}=top
+    const { title, image_url, rating, total_view, details, _id } = top
+
+    const [topicId, setTopicId] = useState(null)
     console.log(top)
+
     return (
         <div >
-            
-             
-                
-                <Card className='my-3 ' style={{ width: '18rem',height:'500px'}}>
+
+
+
+            <Card className='my-3 ' style={{ width: '18rem', height: '550px' }}>
                 <Card.Img variant="top" src={image_url} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {
+                            details.length > 100 ?
+                                <>{details.slice(0, 100) + '...'} </>
+                                :
+                                details
+                        }
                     </Card.Text>
                     <div className='d-flex justify-content-around'>
-                       <p><small><AiFillStar /> {rating.number}</small> </p> 
-                       <p> <small><AiFillEye/> {total_view}</small></p>
-                       
+                        <p><small><AiFillStar /> {rating.number}</small> </p>
+                        <p> <small><AiFillEye /> {total_view}</small></p>
+
                     </div>
-                    <Button variant="primary">Go somewhere</Button>
+                    <div className='text-center'>
+                        {/* <Button style={{ width: '10rem' }} onClick={() => {
+                            //  setTopicId(_id)
+                        }
+                        }> see more</Button> */}
+                        <button>
+
+                        </button>
+                        <Link to='/details' onClick={() => {
+                              setTopicId(_id)
+                        }
+                        }>
+                            see
+                        </Link>
+                    </div>
+                     
                 </Card.Body>
-                </Card>
-               
+            </Card>
+
+
             
-         
         </div>
     );
 };

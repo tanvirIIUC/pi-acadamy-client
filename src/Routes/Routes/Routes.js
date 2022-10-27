@@ -5,6 +5,7 @@ import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import TopicDetails from "../../Pages/TopicDetails/TopicDetails";
 import TopicHome from "../../Pages/TopicHome/TopicHome";
 import Topics from "../../Pages/Topics/Topices/Topics";
 import TopicsView from "../../Pages/TopicsView/TopicsView";
@@ -41,6 +42,11 @@ export const routes = createBrowserRouter([
             {
                 path:'/top',
                 element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>
+                
+            },
+            {
+                path:'/details',
+                element : <PrivatRoute><TopicDetails></TopicDetails></PrivatRoute>
                 
             },
             

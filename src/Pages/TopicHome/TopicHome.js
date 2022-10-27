@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, ButtonGroup, Col, Container, Row } from 'react-bootstrap';
-import { Link, Outlet } from 'react-router-dom';
-import LeftSideNev from '../Shares/LeftSideNev/LeftSideNev';
+
+
 import Topics from '../Topics/Topices/Topics';
 
 const TopicHome = () => {
@@ -9,6 +9,7 @@ const TopicHome = () => {
     const [topics, setTopics] = useState([]);
 
     const [topicid, setTopicid] = useState(null);
+    const [topicname,settopicname] = useState('')
 
 
     useEffect(() => {
@@ -16,14 +17,17 @@ const TopicHome = () => {
             .then(res => res.json())
             .then(data => setTopics(data))
     }, [])
+
+    
+   
     return (
         <div className='p-5'>
             <Container>
                 <Row>
                     <Col lg="4">
-                        {/* <LeftSideNev></LeftSideNev> */}
+                        
 
-                        {/* <Outlet></Outlet> */}
+                       
                         <div>
                             <h1  className='text-primary '>All Topics</h1>
                             <div>
@@ -34,18 +38,25 @@ const TopicHome = () => {
                                         
 
                                         </ButtonGroup>
-                                        <Button style={{ width: '18rem'}} onClick={() => setTopicid(topic.id)}> {topic.name} </Button>
+                                        <Button style={{ width: '18rem'}} onClick={() => 
+                                            {
+                                                setTopicid(topic.id)
+                                                settopicname(topic.name)
+                                            }
+                                            
+                                            }> {topic.name} </Button>
 
                                         
                                     </p>)
                                 }
+                                
                             </div>
 
                         </div>
 
                     </Col>
                     <Col lg="8">
-                        <Topics topicid={topicid}></Topics>
+                        <Topics topicid={topicid} name={topicname}></Topics>
 
                     </Col>
                 </Row>
