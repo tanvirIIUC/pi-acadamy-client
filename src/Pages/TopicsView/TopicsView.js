@@ -40,18 +40,10 @@ const TopicsView = ({ top }) => {
 
                     </div>
                     <div className='text-center'>
-                        {/* <Button style={{ width: '10rem' }} onClick={() => {
-                            //  setTopicId(_id)
-                        }
-                        }> see more</Button> */}
-                        <button>
-
-                        </button>
-                        <Link to='/details' onClick={() => {
-                              setTopicId(_id)
-                        }
-                        }>
-                            see
+                       
+                        
+                        <Link className='fw-bold' to={`/details/${_id}`} >
+                            see details
                         </Link>
                     </div>
                      

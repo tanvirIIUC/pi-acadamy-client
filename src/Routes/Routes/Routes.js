@@ -44,17 +44,17 @@ export const routes = createBrowserRouter([
                 element : <PrivatRoute><TopicHome></TopicHome></PrivatRoute>
                 
             },
-            {
+            /* {
                 path:'/details',
-                element : <PrivatRoute><TopicDetails></TopicDetails></PrivatRoute>
                 
-            },
-            
-           /*  {
-                path:'/topics/:id',
-                element: <Topics></Topics>,
-                loader : ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                
             }, */
+            
+            {
+                path:'/details/:id',
+                element : <PrivatRoute><TopicDetails></TopicDetails></PrivatRoute>,
+                loader : ({params}) => fetch(`http://localhost:5000/topicsDetails/${params.id}`)
+            },
           /*   {
                 path: '/topicsview/:id',
                 element:<TopicsView></TopicsView>

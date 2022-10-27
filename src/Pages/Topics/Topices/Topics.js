@@ -7,7 +7,7 @@ import { useRef } from 'react';
 
 import TopicsView from '../../TopicsView/TopicsView';
 import { FaRegFileAlt } from 'react-icons/fa';
-// import { useLoaderData } from 'react-router-dom';
+//  import { useLoaderData } from 'react-router-dom';
 
 const Topics = ({ topicid,name }) => {
 
@@ -24,10 +24,10 @@ const Topics = ({ topicid,name }) => {
 
     return (
         <div>
-            <div>
+            <div className='d-flex '>
                 <h2>{name}</h2>
-                {/* <a class="" href="C193042_Lab Report-2.pdf" download=".pdf">Download  </a> */}
-                <ReactToPrint trigger={() => <Button>Download</Button>} content={()=>ref.current}/>
+                
+                <ReactToPrint trigger={() => <Button className='ms-2' >Download</Button>} content={()=>ref.current}/>
             </div>
            
              
