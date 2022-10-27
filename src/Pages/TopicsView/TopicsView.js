@@ -14,8 +14,8 @@ import TopicDetails from '../TopicDetails/TopicDetails';
 const TopicsView = ({ top }) => {
     const { title, image_url, rating, total_view, details, _id } = top
 
-    const [topicId, setTopicId] = useState(null)
-    console.log(top)
+    
+    
 
     return (
         <div >

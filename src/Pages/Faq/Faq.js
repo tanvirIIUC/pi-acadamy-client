@@ -18,6 +18,12 @@ const Faq = () => {
                         fill the form by name ,image,gmail,password.
                     </Accordion.Body>
                 </Accordion.Item>
+                <Accordion.Item eventKey="12">
+                    <Accordion.Header>Login form?</Accordion.Header>
+                    <Accordion.Body>
+                        fill the form by valid email and password.
+                    </Accordion.Body>
+                </Accordion.Item>
             </Accordion>
         </div>
     );
